@@ -104,12 +104,17 @@ const Index = () => {
             </h1>
 
             <p className="animate-on-scroll opacity-0 [&.animate-visible]:animate-fade-in-up [&.animate-visible]:[animation-delay:0.3s] font-display text-xl md:text-2xl text-accent italic mb-4 drop-shadow-md">
-              Luxury Interiors. Trusted Construction. 35+ Years of Excellence.
+              Luxury Interiors & Construction Experts in Maharashtra. 35+ Years of Excellence.
             </p>
 
             <p className="animate-on-scroll opacity-0 [&.animate-visible]:animate-fade-in-up [&.animate-visible]:[animation-delay:0.4s] font-body text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
               We specialize in designing, building, repairing, and redeveloping residential and commercial spaces. With over 35 years of experience, we deliver premium interior and construction solutions tailored to every project.
             </p>
+
+            <p className="sr-only">
+              Arwaa Constructions provides interior design, showroom construction, office interiors, renovation, painting and fabrication services across Maharashtra including Mumbai, Pune, Thane and nearby cities.
+              </p>
+
 
            <div className="animate-on-scroll opacity-0 [&.animate-visible]:animate-fade-in-up [&.animate-visible]:[animation-delay:0.5s] flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
 
