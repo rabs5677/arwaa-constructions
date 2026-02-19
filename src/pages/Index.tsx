@@ -110,6 +110,10 @@ const Index = () => {
             <p className="animate-on-scroll opacity-0 [&.animate-visible]:animate-fade-in-up [&.animate-visible]:[animation-delay:0.4s] font-body text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
               We specialize in designing, building, repairing, and redeveloping residential and commercial spaces. With over 35 years of experience, we deliver premium interior and construction solutions tailored to every project.
             </p>
+   
+            <p className="sr-only">
+            Arwaa Constructions offers interior design and construction services in Mumbai, Pune, Thane, Navi Mumbai and across Maharashtra for homes, offices and showrooms.
+            </p>
 
             <p className="sr-only">
               Arwaa Constructions provides interior design, showroom construction, office interiors, renovation, painting and fabrication services across Maharashtra including Mumbai, Pune, Thane and nearby cities.
