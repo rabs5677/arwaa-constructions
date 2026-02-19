@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 95%;
+    --foreground: 20 10% 15%;
+
+    --card: 40 25% 97%;
+    --card-foreground: 20 10% 15%;
+
+    --popover: 40 25% 97%;
+    --popover-foreground: 20 10% 15%;
+
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 20% 95%;
+
+    --secondary: 38 25% 88%;
+    --secondary-foreground: 20 10% 15%;
+
+    --muted: 38 20% 91%;
+    --muted-foreground: 20 8% 45%;
+
+    --accent: 40 45% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 40 45% 60%;
+
+    --radius: 0.5rem;
+
+    --gold: 40 45% 60%;
+    --gold-dark: 40 38% 45%;
+    --coffee: 0 0% 8%;
+    --ivory: 40 20% 95%;
+    --warm-beige: 38 25% 85%;
+    --charcoal-text: 20 10% 15%;
+
+    --sidebar-background: 40 20% 97%;
+    --sidebar-foreground: 20 10% 15%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 40 20% 95%;
+    --sidebar-accent: 38 25% 90%;
+    --sidebar-accent-foreground: 20 10% 15%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 40 45% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(40 45% 60%), hsl(40 38% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 5%));
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(180deg, hsl(40 20% 95%), hsl(38 25% 85%));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(0 0% 5% / 0.7), hsl(0 0% 0% / 0.5));
+  }
+
+  .shadow-gold {
+    box-shadow: 0 8px 32px -8px hsl(40 45% 60% / 0.35);
+  }
+
+  .shadow-warm {
+    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px hsl(40 45% 60% / 0.15);
+  }
+}
