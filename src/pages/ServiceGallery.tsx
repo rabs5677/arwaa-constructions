@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 // 👉 ALL IMAGES FROM ONE FOLDER
@@ -57,65 +58,192 @@ import fab1 from "@/assets/services/fab1.jpg";
 import fab2 from "@/assets/services/fab2.jpg";
 
 const galleries = {
-  residential: [house1, house2, house3, house4, house5, house6, k1, k2, k3, k4, k5, k6],
-  showrooms: [showroom1, showroom2, showroom3],
-  workshops: [workshop1, workshop2, workshop3],
-  corporate: [corporate1, corporate2, corporate3, corporate4, corporate5, corporate6],
-  painting: [paint1, paint2, paint3, paint4, paint5, paint6],
-  renovation: [reno1, reno2, reno3, reno4],
+    residential: [
+    {
+      src: house1,
+      desc: "Modern modular kitchen with premium finish and lighting"
+    },
+    {
+      src: house2,
+      desc: "Luxury bedroom interior with customized wardrobe"
+    },
+    {
+      src: house3,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+    {
+      src: house4,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+    {
+      src: house5,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: house6,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k1,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k2,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k3,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k4,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k5,
+      desc: "Contemporary living room interior with false ceiling design"
+    },
+     {
+      src: k6,
+      desc: "Contemporary living room interior with false ceiling design"
+    }
+  ],
+
+   showrooms: [
+    { src: showroom1, desc: "Premium showroom interior with custom display units and lighting" },
+    { src: showroom2, desc: "Modern retail showroom layout with elegant ceiling and flooring" },
+    { src: showroom3, desc: "Luxury commercial showroom design with branded finish" }
+  ],
+
+  workshops: [
+    { src: workshop1, desc: "Functional workshop setup with durable flooring and layout planning" },
+    { src: workshop2, desc: "Industrial workspace design optimized for workflow efficiency" },
+    { src: workshop3, desc: "Custom workshop fabrication area with reinforced structure" }
+  ],
+
+  corporate: [
+    { src: corporate1, desc: "Corporate office reception with modern branding elements" },
+    { src: corporate2, desc: "Executive workspace interior with premium glass partitions" },
+    { src: corporate3, desc: "Conference room design with acoustic and lighting solutions" },
+    { src: corporate4, desc: "Open-plan corporate office layout with workstation zoning" },
+    { src: corporate5, desc: "Professional office interior with modular furniture and lighting" },
+    { src: corporate6, desc: "Corporate workspace with premium finish and ergonomic design" }
+  ],
+
+  painting: [
+    { src: paint1, desc: "Interior wall painting with smooth premium finish" },
+    { src: paint2, desc: "Decorative wall texture and color combination work" },
+    { src: paint3, desc: "Exterior building painting with weather-resistant coating" },
+    { src: paint4, desc: "False ceiling and wall paint finishing work" },
+    { src: paint5, desc: "Residential painting project with clean professional finish" },
+    { src: paint6, desc: "Commercial painting project with durable coating system" }
+  ],
+
+  renovation: [
+    { src: reno1, desc: "Full home renovation with modern design upgrade" },
+    { src: reno2, desc: "Interior remodeling with structural repair and redesign" },
+    { src: reno3, desc: "Old property renovation with new finishes and layout" },
+    { src: reno4, desc: "Complete renovation project with premium materials" }
+  ],
+
   "home-design": [],
-  office: [office1, office2, office3,office4],
-  fabrication: [fab1, fab2],
+
+  office: [
+    { src: office1, desc: "Modern office interior with workstation layout planning" },
+    { src: office2, desc: "Professional office space with storage and ceiling design" },
+    { src: office3, desc: "Compact office interior optimized for productivity" },
+    { src: office4, desc: "Custom office design with lighting and modular furniture" }
+  ],
+
+  fabrication: [
+    { src: fab1, desc: "Custom fabrication work for interiors and structures" },
+    { src: fab2, desc: "Metal fabrication and installation for commercial space" }
+  ]
+
 };
+
 
 const ServiceGallery = () => {
   const { slug } = useParams();
   const images = galleries[slug] || [];
+  const [selectedImg, setSelectedImg] = useState(null);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-  <section className="pt-32 pb-20 container mx-auto px-4">
-<div className="flex flex-wrap items-center gap-6 mb-10 text-sm">
-       <Link
-    to="/#services"
-    className="text-accent font-semibold hover:underline"
-  >
-    ← Back to Services
-  </Link>
+      <section className="pt-32 pb-20 container mx-auto px-4">
 
-  <span className="text-coffee/30">|</span>
+        {/* NAV LINKS */}
+        <div className="flex flex-wrap items-center gap-6 mb-10 text-sm">
+          <Link
+            to="/#services"
+            className="text-accent font-semibold hover:underline"
+          >
+            ← Back to Services
+          </Link>
 
-  <Link
-    to="/#hero"
-    className="text-coffee/70 font-semibold hover:text-accent hover:underline"
-  >
-    ↑ Go to Home
-  </Link>
-</div>
+          <span className="text-coffee/30">|</span>
 
+          <Link
+            to="/#hero"
+            className="text-coffee/70 font-semibold hover:text-accent hover:underline"
+          >
+            ↑ Go to Home
+          </Link>
+        </div>
+
+        {/* TITLE */}
         <h1 className="text-4xl font-display mb-10 capitalize">
           {slug?.replace("-", " ")} Projects
         </h1>
 
+        {/* EMPTY STATE */}
         {images.length === 0 ? (
-          <p className="text-center text-foreground/60">Images will be added soon.</p>
+          <p className="text-center text-foreground/60">
+            Images will be added soon.
+          </p>
         ) : (
+
+          /* GRID */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt="service work"
-                className="w-full h-[320px] object-cover rounded-lg shadow-warm"
-              />
+            {images.map((item, i) => (
+              <div key={i} className="group cursor-pointer">
+
+                <img
+                  src={item.src}
+                  alt={item.desc}
+                  onClick={() => setSelectedImg(item.src)}
+                  className="w-full h-[320px] object-cover rounded-lg shadow-warm hover:scale-105 transition"
+                />
+
+                <p className="mt-3 text-sm text-foreground/70 text-center">
+                  {item.desc}
+                </p>
+
+              </div>
             ))}
           </div>
         )}
+
       </section>
 
       <Footer />
+
+      {/* ✅ IMAGE POPUP — MUST BE INSIDE RETURN */}
+      {selectedImg && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
+          onClick={() => setSelectedImg(null)}
+        >
+          <img
+            src={selectedImg}
+            alt="Full view"
+            className="max-w-[95%] max-h-[90%] rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
+
     </div>
   );
 };
